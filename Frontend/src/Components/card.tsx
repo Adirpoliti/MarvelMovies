@@ -1,7 +1,24 @@
-import React from 'react'
+import { Box, CardContent } from '@mui/joy'
+import { CardCoverStyle, CardStyled } from '../Styles/cardStyle';
 
-export const card = () => {
+interface CardProp {
+  movieId?: string;
+  movieImgUrl?: string;
+  movieName?: string;
+  movieReleaseYear?: string;
+  movieLength?: string;
+  movieTitles?: string[];
+  movieBudget?: string;
+  movieBoxOffice?: string;
+  movieDescription?: string;
+}
+
+export const MovieCard = ({ movieImgUrl, movieName, movieBoxOffice, movieBudget, movieDescription, movieLength, movieReleaseYear, movieTitles }: CardProp) => {
   return (
-    <div>card</div>
+    <CardStyled >
+      {/* <img src={movieImgUrl}/> */}
+
+      <CardCoverStyle>jdvndskhvnsdkjvnasjlvnasjln</CardCoverStyle>
+    </CardStyled>
   )
 }
