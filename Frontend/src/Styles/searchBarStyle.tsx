@@ -6,5 +6,5 @@ export const SearchBarStyled = styled(TextField)({
     ".MuiInputBase-input" : {
         color:"white"
     },
-    ".Mui" : {}, 
+    
 })
