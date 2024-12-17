@@ -14,6 +14,7 @@ export type MovieType = {
     movieTitles: string[];
     movieDescription: string;
     movieRateing: number;
+    movieTrailer: string;
 }
 
 export const movieSchema = new mongoose.Schema({
@@ -24,6 +25,7 @@ export const movieSchema = new mongoose.Schema({
     movieTitles: [String],
     movieDescription: String,
     movieRateing: Number,
+    movieTrailer: String,
 })
 
 export const MovieValidationSchema = joi.object({
@@ -34,6 +36,7 @@ export const MovieValidationSchema = joi.object({
     movieTitles: joi.string().required().min(1),
     movieDescription: joi.string().required().min(1),
     movieRateing: joi.number().required().min(1900),
+    movieTrailer: joi.string().required().min(1),
 })
 
 export const validateMovie = (movie: MovieType) => {
