@@ -4,7 +4,7 @@ import { addNewMovieLogic } from '../logic/moviesLogic';
 
 const router = express.Router()
 
-router.post('/movies/new'), async (req: Request, res: Response, next: NextFunction) => {
+router.post('/movies/new', async (req: Request, res: Response, next: NextFunction) => {
     try {
       const newMovie = req.body as MovieType
       const addedMovie = await addNewMovieLogic(newMovie)
@@ -12,6 +12,6 @@ router.post('/movies/new'), async (req: Request, res: Response, next: NextFuncti
     } catch (err) {
         next(err)
     }
-}
+});
 
 export default router

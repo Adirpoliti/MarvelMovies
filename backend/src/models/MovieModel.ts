@@ -11,7 +11,7 @@ export type MovieType = {
     movieImgUrl: string;
     movieReleaseYear: Number;
     movieLength: string;
-    movieTitles: string[];
+    movieTitles: [string];
     movieDescription: string;
     movieRateing: number;
     movieTrailer: string;
@@ -33,9 +33,9 @@ export const MovieValidationSchema = joi.object({
     movieImgUrl: joi.string().required().min(1),
     movieReleaseYear: joi.number().required().min(1900),
     movieLength: joi.string().required().min(1),
-    movieTitles: joi.string().required().min(1),
+    movieTitles: joi.array().required().min(1),
     movieDescription: joi.string().required().min(1),
-    movieRateing: joi.number().required().min(1900),
+    movieRateing: joi.number().required().min(1),
     movieTrailer: joi.string().required().min(1),
 })
 
