@@ -2,6 +2,28 @@ import { RequestTimeoutError } from "../models/ErrorModel";
 import { MovieType, validateMovie } from "../models/MovieModel";
 import { Movie } from "../utils/dal";
 
+export const getAllMoviesLogic = async () => {
+    try {
+        const movies = await Movie.find() as MovieType[];
+        return movies;
+    } catch (error) {
+        RequestTimeoutError('Failed to fetch the movies!');
+    }
+}
+
+export const findMovieLogic = async (query: string) => {
+    try {
+        if (!query) {
+            const movies = await Movie.find() as MovieType[];
+            return movies;
+        } else {
+            const results = await Movie.find({ movieName: { $regex: query, $options: 'i' } });
+            return results;
+        }
+    } catch (error) {
+        RequestTimeoutError('Failed to fetch the movies!');
+    }
+}
 
 export const addNewMovieLogic = async (newMovie: MovieType): Promise<MovieType> => {
     validateMovie(newMovie)
@@ -20,6 +42,6 @@ export const addNewMovieLogic = async (newMovie: MovieType): Promise<MovieType> 
         console.log("Movie saved succesfuly!")
         return addedMovie
     } catch (error) {
-        RequestTimeoutError(error)
+        RequestTimeoutError('Failed to fetch the movies!');
     }
 }

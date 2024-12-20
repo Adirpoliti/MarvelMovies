@@ -1,8 +1,28 @@
 import express, { NextFunction, Request, Response } from 'express'
 import { MovieType } from '../models/MovieModel';
-import { addNewMovieLogic } from '../logic/moviesLogic';
+import { addNewMovieLogic, findMovieLogic, getAllMoviesLogic } from '../logic/moviesLogic';
 
 const router = express.Router()
+
+
+router.get('/movies/all', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const response = await getAllMoviesLogic();
+        res.json(response);
+    } catch (err) {
+        next(err);
+    }
+});
+
+router.get('/movies/search/:query', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const searchString = req.params.query as string;
+        const response = await findMovieLogic(searchString);
+        res.json(response);
+    } catch (err) {
+        next(err);
+    }
+});
 
 router.post('/movies/new', async (req: Request, res: Response, next: NextFunction) => {
     try {
