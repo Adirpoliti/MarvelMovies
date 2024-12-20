@@ -1,14 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import getTMDBData from '../Services/api/marvelApi';
-import { MovieCard } from './card';
-import { MoviesBox } from '../Styles/marvelMovieStyled';
-
-interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-  release_date: string;
-}
+import React, { useEffect, useState } from "react";
+import { MovieCard } from "./card";
+import { MoviesBox } from "../Styles/marvelMovieStyled";
+import { getAllMoviesService } from "../Services/moviesService";
+import { Movie } from "../Types/movieType";
 
 export const MarvelMovies: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -17,14 +11,10 @@ export const MarvelMovies: React.FC = () => {
   useEffect(() => {
     const fetchMarvelMovies = async () => {
       try {
-        const data = await getTMDBData<{ results: Movie[] }>('discover/movie', {
-          with_companies: 420,
-          sort_by: 'popularity.desc',
-        });
-
-        setMovies(data.results);
+        const data = await getAllMoviesService();
+        setMovies(data);
       } catch (err) {
-        setError('The data is out there... but not here.');
+        setError("The data is out there... but not here.");
       }
     };
 
@@ -35,12 +25,12 @@ export const MarvelMovies: React.FC = () => {
 
   return (
     <MoviesBox>
-      {movies.map((movie) => (
+      {movies.map((movie, index) => (
         <MovieCard
-          key={movie.id}
-          movieName={movie.title}
-          movieReleaseYear={movie.release_date}
-          movieImgUrl={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+          key={index}
+          movieName={movie.movieName}
+          movieReleaseYear={movie.movieReleaseYear}
+          movieImgUrl={movie.movieImgUrl}
         />
       ))}
     </MoviesBox>

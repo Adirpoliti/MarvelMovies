@@ -1,23 +1,26 @@
-import { CardCoverStyle, CardStyled } from '../Styles/cardStyle';
+import { CardCoverStyle, CardStyled } from "../Styles/cardStyle";
 
 interface CardProp {
-  movieId?: string;
-  movieImgUrl?: string;
   movieName?: string;
-  movieReleaseYear?: string;
+  movieImgUrl: string;
+  movieReleaseYear?: number;
   movieLength?: string;
   movieTitles?: string[];
   movieDescription?: string;
+  movieRateing?: number;
+  movieTrailer?: string;
 }
 
-export const MovieCard = ({ movieImgUrl, movieName, movieReleaseYear }: CardProp) => {
+export const MovieCard = ({
+  movieImgUrl,
+  movieName,
+  movieReleaseYear,
+}: CardProp) => {
   return (
-    <CardStyled style={{
-      backgroundImage: `url(https://image.tmdb.org/t/p/w200${movieImgUrl})`,
-    }}>
-      {/* <img src={movieImgUrl}/> */}
-
-      <CardCoverStyle>{movieName} <br /> {movieReleaseYear}</CardCoverStyle>
+    <CardStyled imgurl={movieImgUrl}>
+      <CardCoverStyle>
+        {movieName} <br /> {movieReleaseYear}
+      </CardCoverStyle>
     </CardStyled>
-  )
-}
+  );
+};
