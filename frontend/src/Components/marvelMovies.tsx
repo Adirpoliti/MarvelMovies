@@ -8,20 +8,20 @@ export const MarvelMovies: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchMarvelMovies = async () => {
-      try {
-        const data = await getAllMoviesService();
-        setMovies(data);
-      } catch (err) {
-        setError("The data is out there... but not here.");
-      }
-    };
+  // useEffect(() => {
+  //   const fetchMarvelMovies = async () => {
+  //     try {
+  //       const data = await getAllMoviesService();
+  //       setMovies(data);
+  //     } catch (err) {
+  //       setError("The data is out there... but not here.");
+  //     }
+  //   };
 
-    fetchMarvelMovies();
-  }, []);
+  //   fetchMarvelMovies();
+  // }, []);
 
-  if (error) return <div>{error}</div>;
+  // if (error) return <div>{error}</div>;
 
   return (
     <MoviesBox>

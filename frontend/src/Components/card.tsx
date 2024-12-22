@@ -15,11 +15,12 @@ export const MovieCard = ({
   movieImgUrl,
   movieName,
   movieReleaseYear,
+  movieDescription
 }: CardProp) => {
   return (
     <CardStyled imgurl={movieImgUrl}>
       <CardCoverStyle>
-        {movieName} <br /> {movieReleaseYear}
+        {movieName} <br /> {movieReleaseYear} <br /> {movieDescription}
       </CardCoverStyle>
     </CardStyled>
   );

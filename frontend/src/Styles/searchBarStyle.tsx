@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
-export const SearchBarContainer = styled(Box)({
+export const SearchBarContainer = styled("form")({
   display: "flex",
   alignItems: "flex-end",
   gap: "5px",
