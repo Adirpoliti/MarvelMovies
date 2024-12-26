@@ -5,8 +5,7 @@ export const AppStyled = styled(Box)({
     height: "100vh",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-around",
+    justifyContent: "center",
     alignItems: "center",
-
 })
 

@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import { Movie } from "../Types/movieType";
 import { useForm } from "react-hook-form";
-import {
-  getAllMoviesService,
-  searchedMovieServies,
-} from "../Services/moviesService";
+import { getAllMoviesService } from "../Services/moviesService";
 import { SearchBarContainer, SearchBarStyled } from "../Styles/searchBarStyle";
 import { MoviesBox } from "../Styles/marvelMovieStyled";
-import { MovieCard } from "./card";
+import { MovieCard } from "./movieCard";
 import SearchIcon from "@mui/icons-material/Search";
 
 type SearchBarInput = {
@@ -61,6 +58,7 @@ export const SearchBar = () => {
                   movieReleaseYear={movie.movieReleaseYear}
                   movieImgUrl={movie.movieImgUrl}
                   movieDescription={movie.movieDescription}
+                  movieRateing={movie.movieRateing}
                 />
               ))
             : fetchedMovies.length > 0
@@ -71,6 +69,7 @@ export const SearchBar = () => {
                   movieReleaseYear={movie.movieReleaseYear}
                   movieImgUrl={movie.movieImgUrl}
                   movieDescription={movie.movieDescription}
+                  movieRateing={movie.movieRateing}
                 />
               ))
             : null}
