@@ -1,14 +1,13 @@
-import { Box } from "@mui/material";
-import { SearchBar } from "./Components/searchBar";
-import { AppStyled } from "./Styles/appStyle";
+import { AppStyled, LogoBox } from "./Styles/appStyle";
+import { SearchPage } from "./Components/SearchPage";
 
 function App() {
   return (
     <AppStyled>
-      <Box style={{ margin: "25px" }}>
+      <LogoBox>
         <img src="Assets/Images/logo.png" alt="logo" />
-      </Box>
-      <SearchBar />
+      </LogoBox>
+      <SearchPage />
     </AppStyled>
   );
 }

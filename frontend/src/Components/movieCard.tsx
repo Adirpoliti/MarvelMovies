@@ -6,11 +6,11 @@ import {
   MovieTitle,
   MovieDescription,
   ColoredChip,
-  // RatioBox,
 } from "../Styles/cardStyle";
 import StarIcon from "@mui/icons-material/Star";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import AspectRatioIcon from '@mui/icons-material/AspectRatio';
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { useState } from "react";
 
 interface CardProp {
   movieName: string;
@@ -21,22 +21,23 @@ interface CardProp {
   movieDescription?: string;
   movieRateing?: number;
   movieTrailer?: string;
+  onClick?: () => void;
 }
 
 export const MovieCard = ({
-  movieImgUrl,
   movieName,
+  movieImgUrl,
   movieReleaseYear,
+  movieLength,
+  movieTitles,
   movieDescription,
   movieRateing,
+  movieTrailer,
+  onClick
 }: CardProp) => {
-
   return (
     <CardContainer imgurl={movieImgUrl}>
       <InnerCardContainer>
-        {/* <RatioBox>
-          <AspectRatioIcon htmlColor="#fff"/>
-        </RatioBox> */}
         <CardInfoBox>
           <MovieTitle>{movieName}</MovieTitle>
           <MovieDescription>{movieDescription}</MovieDescription>
@@ -54,6 +55,13 @@ export const MovieCard = ({
             color="info"
             size="small"
             icon={<CalendarTodayIcon />}
+          />
+          <ColoredChip
+            label="more info"
+            color="info"
+            size="small"
+            icon={<OpenInNewIcon />}
+            onClick={onClick}
           />
         </CardChipContainer>
       </InnerCardContainer>

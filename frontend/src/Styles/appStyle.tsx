@@ -9,3 +9,6 @@ export const AppStyled = styled(Box)({
     alignItems: "center",
 })
 
+export const LogoBox = styled(Box)({
+    marginBottom: "25px"
+})

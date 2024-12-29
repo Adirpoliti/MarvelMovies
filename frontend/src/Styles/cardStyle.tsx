@@ -21,23 +21,13 @@ export const InnerCardContainer = styled(Box)({
   opacity: 0,
   ":hover": {
     opacity: 1,
-    // position: "relative",
     display: "flex",
     flexDirection: "column",
     backdropFilter: "blur(2px)",
     justifyContent: "space-between",
     padding: "20px",
-    cursor: "pointer",
   },
 });
-
-// export const RatioBox = styled(Box)({
-//   position: "absolute",
-//   top: 0,
-//   right: 0,
-//   margin: "2px",
-//   cursor: "pointer",
-// })
 
 export const CardInfoBox = styled(Box)({
   color: "white",
@@ -58,15 +48,20 @@ export const MovieDescription = styled(Typography)({
   overflow: "hidden",
   display: "-webkit-box",
   WebkitBoxOrient: "vertical",
-  WebkitLineClamp: 7,
+  WebkitLineClamp: 5,
 });
 
 export const CardChipContainer = styled(Box)({
-  gap: "20px",
+  gap: "10px",
   display: "flex",
   justifyContent: "center",
+  flexWrap: "wrap",
 });
 
 export const ColoredChip = styled(Chip)({
-  backgroundColor: "#ed1d24"
+  backgroundColor: "#ed1d24",
+  "&:nth-of-type(3):hover": {
+    backgroundColor: "#b5000a",
+    cursor: "pointer",
+  }
 })
