@@ -10,7 +10,6 @@ import {
 import StarIcon from "@mui/icons-material/Star";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import { useState } from "react";
 
 interface CardProp {
   movieName: string;

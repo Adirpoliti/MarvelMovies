@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 export const SearchBarContainer = styled("form")({
